@@ -1,15 +1,18 @@
 body {
     background-color: #3d1130;
     color: #c09bb5;
+    width: auto;
 }
 
 header{
     display: flex;
     justify-content: space-evenly;
-    position: fixed;
-    top: 0;
+    position: sticky;
     width: 100%;
     background-color: #180713;
+    align-items: center;
+    backdrop-filter:blur(.25em);
+    top: 0;
  }
 
  header nav ul li h1{
@@ -21,11 +24,40 @@ header{
  nav ul{
     display: flex; 
     justify-content: space-around;
+    list-style-type: none;
+    text-decoration: none;
  }
 
  nav li{
     padding-left: 0.4em;
     padding-right: 0.4em;
+ }
+
+ header a{
+    color: #c09bb5;
+    border-radius: 0.4em;
+    padding: 0.3em;
     list-style-type: none;
     text-decoration: none;
+ }
+
+ header a:hover{
+    background-color: #c09bb5;
+    color: #3d1130;
+    transition: 200ms linear 150ms;
+ }
+
+main a {
+    list-style-type: none;
+    text-decoration: none;
+    border-radius: 0.4em;
+    padding: 0.3em;
+    background-color: #c09bb5;
+    color: #3d1130;
+ }
+
+ main a:hover{
+    background-color: #180713;
+    color: #c09bb5;
+    transition: 200ms linear 150ms;
  }
