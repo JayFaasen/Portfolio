@@ -2,3 +2,8 @@ body {
     background-color: #3d1130;
     color: #c09bb5;
 }
+
+nav{
+    position: fixed;
+    top: 0%;
+}
