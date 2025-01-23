@@ -3,7 +3,29 @@ body {
     color: #c09bb5;
 }
 
-nav{
+header{
+    display: flex;
+    justify-content: space-evenly;
     position: fixed;
-    top: 0%;
-}
+    top: 0;
+    width: 100%;
+    background-color: #180713;
+ }
+
+ header nav ul li h1{
+    display: flex;
+    margin: auto;
+    width: 100%;
+ }
+
+ nav ul{
+    display: flex; 
+    justify-content: space-around;
+ }
+
+ nav li{
+    padding-left: 0.4em;
+    padding-right: 0.4em;
+    list-style-type: none;
+    text-decoration: none;
+ }
