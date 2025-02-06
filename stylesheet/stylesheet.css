@@ -47,6 +47,10 @@ header a:hover{
     transition: 200ms linear 150ms;
  }
 
+main {
+   padding: 0 2em, 0, 2em, ;
+}
+
 main a {
     list-style-type: none;
     text-decoration: none;
@@ -56,11 +60,6 @@ main a {
     color: #3d1130;
  }
 
-main a:hover{
-    background-color: #180713;
-    color: #c09bb5;
-    transition: 200ms linear 150ms;
- }
 
 
 main.about section{
