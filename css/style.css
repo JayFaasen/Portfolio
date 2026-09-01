@@ -1,0 +1,1162 @@
+/* =========================================
+   DESIGN TOKENS
+========================================= */
+:root {
+    --background: #121713;
+    --surface: #252b21;
+    --cream: #f1eee6;
+    --cream-dark: #e9e6dc;
+    --text-dark: #181b17;
+    --green: #69725a;
+    --olive: #7d8062;
+    --purple: #8d73b2;
+    --purple-light: #b9a8d1;
+    --line: rgb(241 238 230 / 20%);
+    --line-dark: rgb(24 27 23 / 20%);
+    --padding: clamp(1.25rem, 4vw, 4rem);
+    --max-width: 1400px;
+    --transition: 250ms ease;
+}
+
+/* =========================================
+   RESET / BASE
+========================================= */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--background);
+    color: var(--cream);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+figure {
+    margin: 0;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+summary {
+    font: inherit;
+}
+
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+address {
+    font-style: normal;
+}
+
+em {
+    font-family: Georgia, serif;
+    font-weight: normal;
+}
+
+.skip-link {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 100;
+    padding: .75rem 1rem;
+    background: var(--purple);
+    color: var(--text-dark);
+    transform: translateY(-200%);
+    transition: transform var(--transition);
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+:focus-visible {
+    outline: 3px solid var(--purple-light);
+    outline-offset: 5px;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+body > header {
+    position: absolute;
+    inset: 0 0 auto;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem var(--padding);
+}
+
+body > header > a {
+    font-size: .9rem;
+    letter-spacing: .05em;
+}
+
+body > header b {
+    color: var(--purple);
+    font-size: 1.2em;
+}
+
+nav ul {
+    display: flex;
+    gap: clamp(1rem, 3vw, 2.5rem);
+}
+
+nav a {
+    font-size: .75rem;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+}
+
+nav a:hover {
+    color: var(--purple-light);
+}
+
+/* =========================================
+   GENERAL SECTION HEADERS
+========================================= */
+main > section {
+    border-bottom: 1px solid var(--line);
+}
+
+main > section > header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem var(--padding);
+    border-bottom: 1px solid var(--line);
+}
+
+main > section > header p {
+    margin: 0;
+    font-size: .75rem;
+}
+
+main > section > header h2 {
+    margin: 0;
+    font-size: .8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+}
+
+/* =========================================
+   HOME — HERO
+========================================= */
+#top {
+    position: relative;
+    min-height: 100svh;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: clamp(7rem, 12vw, 10rem) var(--padding) 5rem;
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    grid-template-rows: 1fr auto;
+    gap: 2rem 5rem;
+    align-items: center;
+}
+
+#top > p:first-child {
+    position: absolute;
+    left: var(--padding);
+    top: 50%;
+    margin: 0;
+    font-size: .75rem;
+    opacity: .7;
+}
+
+#top h1 {
+    margin: 0;
+    max-width: 750px;
+    font-size: clamp(4rem, 8vw, 8rem);
+    line-height: .82;
+    letter-spacing: -.055em;
+    text-transform: uppercase;
+}
+
+#top h1 em {
+    color: var(--purple);
+    font-size: 1.1em;
+}
+
+#top figure {
+    position: relative;
+    width: min(100%, 550px);
+    justify-self: end;
+}
+
+#top figure::before {
+    content: "";
+    position: absolute;
+    width: 75%;
+    height: 65%;
+    top: 10%;
+    right: -12%;
+    background: var(--olive);
+    z-index: -1;
+}
+
+#top figure img {
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transform: rotate(3deg);
+}
+
+#top figure figcaption {
+    position: absolute;
+    top: -2rem;
+    right: -1rem;
+    color: var(--purple-light);
+    font-size: 3rem;
+}
+
+#top > p:nth-of-type(2) {
+    max-width: 430px;
+    margin: 0;
+    font-size: .9rem;
+}
+
+#top > p:nth-of-type(3) {
+    justify-self: end;
+    margin: 0;
+    color: var(--purple-light);
+    font-size: 1.1rem;
+}
+
+#top > a {
+    position: absolute;
+    bottom: 2rem;
+    left: var(--padding);
+    font-size: .7rem;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+}
+
+#top > a:hover {
+    color: var(--purple-light);
+}
+
+/* =========================================
+   HOME — SELECTED WORK
+========================================= */
+#work {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    padding: 1rem var(--padding) 4rem;
+}
+
+#work > header {
+    grid-column: 1 / -1;
+    margin: 0 calc(var(--padding) * -1);
+    padding: 1rem var(--padding);
+}
+
+.home-project {
+    min-width: 0;
+    border: 1px solid var(--line);
+    overflow: hidden;
+    transition: background var(--transition), border-color var(--transition);
+}
+
+.home-project:hover {
+    background: rgb(255 255 255 / 3%);
+    border-color: rgb(241 238 230 / 35%);
+}
+
+.home-project a {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+.home-project figure {
+    overflow: hidden;
+}
+
+.home-project img {
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    filter: grayscale(30%);
+    transition: transform var(--transition), filter var(--transition);
+}
+
+.home-project:hover img {
+    transform: scale(1.035);
+    filter: grayscale(0%);
+}
+
+.home-project-info {
+    padding: 1.25rem 1.25rem 1.5rem;
+    padding-right: 4rem;
+}
+
+.home-project-category {
+    margin: 0 0 .45rem;
+    font-size: .65rem;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    opacity: .65;
+}
+
+.home-project h3 {
+    margin: 0 0 .35rem;
+    font-size: clamp(1.4rem, 2.2vw, 2.2rem);
+    line-height: .95;
+    text-transform: uppercase;
+}
+
+.home-project-description {
+    max-width: 520px;
+    margin: 0;
+    font-size: .8rem;
+    line-height: 1.45;
+    opacity: .7;
+}
+
+.home-project-arrow {
+    position: absolute;
+    right: 1.25rem;
+    bottom: 1.45rem;
+    color: var(--purple-light);
+    font-size: 1.1rem;
+    transition: transform var(--transition);
+}
+
+.home-project:hover .home-project-arrow {
+    transform: translate(3px, -3px);
+}
+
+.home-project-featured {
+    grid-column: auto;
+}
+
+.home-project-featured img {
+    aspect-ratio: 16 / 10;
+}
+
+/* =========================================
+   ABOUT
+========================================= */
+#about {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr .7fr;
+    gap: clamp(2rem, 5vw, 5rem);
+    padding: 5rem var(--padding);
+    background: var(--cream-dark);
+    color: var(--text-dark);
+}
+
+#about > header,
+#contact > header {
+    grid-column: 1 / -1;
+    margin: -5rem calc(var(--padding) * -1) 0;
+    padding: 1.5rem var(--padding);
+    border-bottom: 1px solid var(--line-dark);
+}
+
+#about figure {
+    position: relative;
+    max-width: 400px;
+}
+
+#about figure img {
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transform: rotate(2deg);
+}
+
+#about figcaption {
+    position: absolute;
+    left: -2rem;
+    top: 30%;
+    transform: rotate(-6deg);
+}
+
+#about article h2 {
+    margin: 0 0 2rem;
+    font-size: clamp(2.5rem, 5vw, 5rem);
+    line-height: .9;
+    text-transform: uppercase;
+}
+
+#about article p {
+    max-width: 550px;
+}
+
+#about article a {
+    display: inline-block;
+    margin-top: 1rem;
+    text-decoration: underline;
+    text-underline-offset: .3em;
+}
+
+#about aside {
+    align-self: center;
+    padding: 1.5rem;
+    border: 1px solid var(--line-dark);
+}
+
+#about aside h3 {
+    display: inline-block;
+    margin: -2.3rem 0 1rem;
+    padding: .4rem .7rem;
+    background: var(--purple-light);
+    font-size: .7rem;
+    text-transform: uppercase;
+    transform: rotate(-2deg);
+}
+
+#about aside li {
+    padding: .7rem 0;
+    border-bottom: 1px solid var(--line-dark);
+    font-size: .8rem;
+}
+
+#about aside li::before {
+    content: "✦ ";
+    color: var(--purple);
+}
+
+/* =========================================
+   WHAT I DO
+========================================= */
+#skills {
+    padding-bottom: 4rem;
+}
+
+#skills > ol {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    counter-reset: skill;
+}
+
+#skills li {
+    min-height: 250px;
+    padding: 2rem;
+    border-right: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: background var(--transition);
+}
+
+#skills li:hover {
+    background: var(--green);
+}
+
+#skills li::before {
+    counter-increment: skill;
+    content: counter(skill, decimal-leading-zero);
+    color: var(--olive);
+    font-size: 2rem;
+}
+
+#skills h3 {
+    margin: 0;
+    font-size: clamp(1.2rem, 2vw, 2rem);
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+#skills li a {
+    align-self: flex-end;
+    font-size: .7rem;
+}
+
+#skills li a:hover {
+    color: var(--purple-light);
+}
+
+/* =========================================
+   CONTACT
+========================================= */
+#contact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    padding: 5rem var(--padding);
+}
+
+#contact > h2 {
+    margin: 0;
+    font-size: clamp(3rem, 7vw, 7rem);
+    line-height: .85;
+    text-transform: uppercase;
+}
+
+#contact > h2 em {
+    color: var(--purple);
+}
+
+#contact address {
+    align-self: center;
+}
+
+#contact address a {
+    display: block;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--line);
+    font-size: .85rem;
+}
+
+#contact address a:hover {
+    color: var(--purple-light);
+}
+
+/* =========================================
+   PROJECTS PAGE — INTRO
+========================================= */
+.projects-intro {
+    min-height: 72svh;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 80px minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    column-gap: 2rem;
+    align-content: center;
+    padding: 8rem var(--padding) 5rem;
+    border-bottom: 1px solid var(--line);
+}
+
+.projects-intro .section-number {
+    grid-column: 1;
+    grid-row: 1;
+    margin: .8rem 0 0;
+    font-size: .75rem;
+    color: var(--cream);
+}
+
+.projects-intro h1 {
+    grid-column: 2;
+    grid-row: 1;
+    margin: 0;
+    max-width: 1000px;
+    font-size: clamp(5rem, 11vw, 10rem);
+    line-height: .78;
+    letter-spacing: -.06em;
+    text-transform: uppercase;
+}
+
+.projects-intro .intro-text {
+    grid-column: 2;
+    grid-row: 2;
+    max-width: 520px;
+    margin: 2.5rem 0 0;
+    font-size: .9rem;
+    line-height: 1.45;
+}
+
+/* =========================================
+   PROJECTS PAGE — LIST
+========================================= */
+.projects-grid {
+    display: flex;
+    flex-direction: column;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2rem var(--padding) 6rem;
+}
+
+.project {
+    border-top: 1px solid var(--line);
+}
+
+.project:last-child {
+    border-bottom: 1px solid var(--line);
+}
+
+.project summary {
+    position: relative;
+    display: grid;
+    grid-template-columns: 55px minmax(180px, 220px) minmax(220px, 1fr) minmax(280px, 1.15fr) 44px;
+    gap: clamp(.75rem, 1.8vw, 1.5rem);
+    align-items: center;
+    min-height: 150px;
+    padding: 1.5rem 0;
+    cursor: pointer;
+    list-style: none;
+}
+
+.project summary::-webkit-details-marker {
+    display: none;
+}
+
+.project summary::marker {
+    content: "";
+}
+
+.project summary > * {
+    min-width: 0;
+}
+
+.project summary:hover {
+    background: rgb(255 255 255 / 2%);
+}
+
+.project-number {
+    color: var(--olive);
+    font-size: .8rem;
+}
+
+.project-category {
+    font-size: .65rem;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    line-height: 1.35;
+    opacity: .65;
+}
+
+.project summary h2 {
+    min-width: 0;
+    margin: 0;
+    font-size: clamp(1.8rem, 3.2vw, 3.2rem);
+    line-height: .88;
+    letter-spacing: -.045em;
+    text-transform: uppercase;
+    overflow-wrap: anywhere;
+    word-break: normal;
+}
+
+.project-summary {
+    min-width: 0;
+    max-width: 500px;
+    font-size: .8rem;
+    line-height: 1.45;
+    opacity: .7;
+    overflow-wrap: anywhere;
+}
+
+/* Only one interaction is visible: the square plus/minus button. */
+.project-toggle {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    justify-self: end;
+    border: 1px solid var(--line);
+    transition: background var(--transition), border-color var(--transition), transform var(--transition);
+}
+
+.project-toggle::before,
+.project-toggle::after {
+    content: "";
+    position: absolute;
+    width: .75rem;
+    height: 1px;
+    background: var(--cream);
+}
+
+.project-toggle::after {
+    transform: rotate(90deg);
+}
+
+.project[open] .project-toggle {
+    background: var(--purple);
+    border-color: var(--purple);
+}
+
+.project[open] .project-toggle::after {
+    transform: rotate(0deg);
+}
+
+.project summary:focus-visible .project-toggle {
+    outline: 3px solid var(--purple-light);
+    outline-offset: 4px;
+}
+
+/* =========================================
+   PROJECTS PAGE — OPEN PROJECT
+========================================= */
+.project-content {
+    display: grid;
+    grid-template-columns: minmax(220px, .65fr) minmax(0, 1.35fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    padding: 2rem 0 4rem 55px;
+    animation: project-open .3s ease both;
+}
+
+@keyframes project-open {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.project-copy {
+    padding-top: 1rem;
+    min-width: 0;
+}
+
+.project-copy p:first-child {
+    margin: 0 0 .75rem;
+    color: var(--purple-light);
+    font-size: .7rem;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+}
+
+.project-copy p:last-child {
+    max-width: 520px;
+    margin: 0;
+    font-size: .9rem;
+    line-height: 1.5;
+    opacity: .7;
+}
+
+/* =========================================
+   PROJECTS PAGE — CAROUSEL
+========================================= */
+.project-carousel {
+    position: relative;
+    min-width: 0;
+    overflow: hidden;
+    background: var(--surface);
+    border: 1px solid var(--line);
+}
+
+.carousel-track {
+    display: flex;
+    width: 100%;
+    transform: translateX(0);
+    transition: transform 350ms ease;
+}
+
+.carousel-slide {
+    position: relative;
+    flex: 0 0 100%;
+    width: 100%;
+    min-width: 100%;
+    min-height: 420px;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    background: var(--surface);
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: min(650px, 55vw);
+    max-height: 650px;
+    object-fit: contain;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    z-index: 3;
+    width: 2.8rem;
+    height: 2.8rem;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--line);
+    background: rgb(18 23 19 / 88%);
+    color: var(--cream);
+    cursor: pointer;
+    transform: translateY(-50%);
+    transition: background var(--transition), color var(--transition), border-color var(--transition);
+}
+
+.carousel-button:hover {
+    background: var(--purple);
+    border-color: var(--purple);
+    color: var(--text-dark);
+}
+
+.carousel-prev {
+    left: 1rem;
+}
+
+.carousel-next {
+    right: 1rem;
+}
+
+.carousel-button[hidden] {
+    display: none;
+}
+
+.carousel-footer {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    left: 1rem;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.carousel-counter {
+    padding: .4rem .65rem;
+    background: rgb(18 23 19 / 88%);
+    color: var(--cream);
+    font-size: .65rem;
+    letter-spacing: .08em;
+}
+
+.carousel-dots {
+    display: flex;
+    gap: .4rem;
+}
+
+.carousel-dot {
+    width: .55rem;
+    height: .55rem;
+    padding: 0;
+    border: 1px solid var(--cream);
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+    opacity: .65;
+}
+
+.carousel-dot.is-active {
+    background: var(--purple);
+    border-color: var(--purple);
+    opacity: 1;
+}
+
+.carousel-dots[hidden] {
+    display: none;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+body > footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.5rem var(--padding);
+    font-size: .65rem;
+    text-transform: uppercase;
+}
+
+body > footer p {
+    margin: 0;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+@media (max-width: 1100px) {
+    #top {
+        grid-template-columns: 1fr .8fr;
+        gap: 2rem;
+    }
+
+    #about {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #about aside {
+        grid-column: 1 / -1;
+    }
+
+    #skills > ol {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .project summary {
+        grid-template-columns: 45px minmax(150px, 190px) minmax(200px, 1fr) 44px;
+    }
+
+    .project-summary {
+        display: none;
+    }
+
+    .project-content {
+        padding-left: 45px;
+    }
+}
+
+/* =========================================
+   SMALL LAPTOP / TABLET
+========================================= */
+@media (max-width: 800px) {
+    #work {
+        grid-template-columns: 1fr;
+    }
+
+    .home-project-featured {
+        grid-column: auto;
+    }
+
+    .project summary {
+        grid-template-columns: 42px minmax(150px, .75fr) minmax(180px, 1.25fr) 44px;
+    }
+
+    .project summary h2 {
+        font-size: clamp(1.6rem, 5vw, 2.8rem);
+    }
+
+    .project-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .project-copy {
+        padding-top: 0;
+        max-width: 600px;
+    }
+
+    .carousel-slide {
+        min-height: 320px;
+    }
+
+    .carousel-slide img {
+        height: min(600px, 70vw);
+    }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+@media (max-width: 650px) {
+    body > header {
+        position: relative;
+        background: var(--background);
+    }
+
+    nav ul {
+        gap: .8rem;
+    }
+
+    nav a {
+        font-size: .65rem;
+    }
+
+    #top {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        min-height: auto;
+        padding-top: 5rem;
+        gap: 3rem;
+    }
+
+    #top > p:first-child {
+        display: none;
+    }
+
+    #top h1 {
+        font-size: clamp(3rem, 15vw, 5rem);
+    }
+
+    #top figure {
+        width: 80%;
+        align-self: flex-end;
+    }
+
+    #top > p:nth-of-type(3) {
+        align-self: flex-start;
+    }
+
+    #top > a {
+        position: static;
+    }
+
+    #work {
+        display: block;
+        padding: 0 var(--padding) 3rem;
+    }
+
+    #work > header {
+        margin: 0 calc(var(--padding) * -1);
+    }
+
+    .home-project {
+        margin-top: 1rem;
+    }
+
+    .home-project-featured img,
+    .home-project img {
+        aspect-ratio: 16 / 10;
+    }
+
+    #about {
+        display: flex;
+        flex-direction: column;
+        padding: 3rem var(--padding);
+    }
+
+    #about > header,
+    #contact > header {
+        margin: -3rem calc(var(--padding) * -1) 0;
+    }
+
+    #about figure {
+        width: 75%;
+    }
+
+    #skills > ol {
+        grid-template-columns: 1fr;
+    }
+
+    #skills li {
+        min-height: 180px;
+        border-right: none;
+        border-bottom: 1px solid var(--line);
+    }
+
+    #contact {
+        display: flex;
+        flex-direction: column;
+        padding: 3rem var(--padding);
+    }
+
+    .projects-intro {
+        min-height: auto;
+        grid-template-columns: 2rem minmax(0, 1fr);
+        column-gap: 1rem;
+        padding: 6rem var(--padding) 4rem;
+    }
+
+    .projects-intro h1 {
+        font-size: clamp(3.5rem, 17vw, 5.5rem);
+    }
+
+    .projects-intro .intro-text {
+        margin-top: 1.5rem;
+        font-size: .8rem;
+    }
+
+    .projects-grid {
+        padding: 1rem var(--padding) 4rem;
+    }
+
+    .project summary {
+        grid-template-columns: 35px minmax(0, 1fr) 44px;
+        grid-template-rows: auto auto;
+        gap: .35rem .6rem;
+        min-height: 125px;
+        padding: 1.25rem 0;
+    }
+
+    .project-number {
+        grid-column: 1;
+        grid-row: 1 / 3;
+        align-self: start;
+        padding-top: .2rem;
+    }
+
+    .project-category {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .project summary h2 {
+        grid-column: 2;
+        grid-row: 2;
+        font-size: clamp(1.5rem, 8vw, 2.6rem);
+    }
+
+    .project-toggle {
+        grid-column: 3;
+        grid-row: 1 / 3;
+        align-self: center;
+    }
+
+    .project-content {
+        display: block;
+        padding: 1rem 0 3rem;
+    }
+
+    .project-copy {
+        padding: 0 0 1.5rem 35px;
+    }
+
+    .project-carousel {
+        margin-left: 35px;
+        width: calc(100% - 35px);
+    }
+
+    .carousel-slide {
+        min-height: 260px;
+    }
+
+    .carousel-slide img {
+        height: min(520px, 80vw);
+    }
+
+    .carousel-button {
+        width: 2.4rem;
+        height: 2.4rem;
+    }
+
+    .carousel-prev {
+        left: .65rem;
+    }
+
+    .carousel-next {
+        right: .65rem;
+    }
+
+    body > footer {
+        flex-direction: column;
+    }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+        animation: none !important;
+    }
+
+    .carousel-track {
+        transition: none !important;
+    }
+}
